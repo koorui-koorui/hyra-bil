@@ -20,7 +20,7 @@
 
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get('username');
-        document.getElementById('welcome').innerText = Welcome, ${username}!;
+        document.getElementById('welcome').innerText = `Welcome, ${username}!`;
 
 
 
@@ -31,7 +31,7 @@
         const text = document.getElementById('output');
 
         if (!username) {
-            window.location.href = 'elscooterLogin.html';
+            window.location.href = 'bil.html';
         }
         else {
             document.getElementById('Hyra').addEventListener('click', function () {
@@ -43,7 +43,7 @@
 
             });
 
-            document.getElementById('welcome').textContent = Welcome, ${username}!;
+            document.getElementById('welcome').textContent = `Welcome, ${username}!`;
         }
         document.getElementById('Hyr5minuter').addEventListener('click', function () {
             utKr += 10;
