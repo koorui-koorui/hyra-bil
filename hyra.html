@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>67</title>
+</head>
+
+<body>
+    <form id="myUser">
+        <label for="mail or username">Please enter your email or username:</label>
+        <input type="text" id="mail or username" name="mail or username">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        let username = null;
+        const form = document.getElementById('myUser');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const text = document.getElementById('mail or username').value;
+            const password = document.getElementById('password').value;
+
+
+            console.log(text + password);
+
+            if (text == "denis.f" && password == "6plus7") {
+                username = text;
+
+                window.location.href = bil.html?username=$ {encodeURIComponent(username)
+                };
+                     
+            }
+            else {
+                alert("Fel användarnamn eller lösenord!");
+            }
+        });
+    </script>
+
+</body>
+
+</html>

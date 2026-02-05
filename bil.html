@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hyra bil</title>
+</head>
+
+<body>
+
+    <h2 id="welcome"></h2>
+
+    <button id="Hyra"> <img src="" alt="">Hyrabil</button>
+    <button id="Hyr5minuter" style="display: none;">Hyr5minuter</button>
+    <button id="Hyr30minuter" style="display: none;"> Hyr30minuter</button>
+    <p id="output"></p>
+    <script>
+        let utText = 0;
+        let utKr = 0;
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        document.getElementById('welcome').innerText = Welcome, ${username}!;
+
+
+
+        
+        const Hyra = document.getElementById('Hyra');
+        const Hyr5minuter = document.getElementById('Hyr5minuter');
+        const Hyr30minuter = document.getElementById('Hyr30minuter');
+        const text = document.getElementById('output');
+
+        if (!username) {
+            window.location.href = 'elscooterLogin.html';
+        }
+        else {
+            document.getElementById('Hyra').addEventListener('click', function () {
+                alert('Du har hyrt en bil.Tryck igen för att bestämma hur länge du vill hyra bilen!');
+
+                Hyra.style.display = 'none';
+                Hyr5minuter.style.display = 'block';
+                Hyr30minuter.style.display = 'block';
+
+            });
+
+            document.getElementById('welcome').textContent = Welcome, ${username}!;
+        }
+        document.getElementById('Hyr5minuter').addEventListener('click', function () {
+            utKr += 10;
+            utText += 5;
+            text.textContent = utText + " minuter = " + utKr + " kr ";
+        });
+
+        document.getElementById('Hyr30minuter').addEventListener('click', function () {
+            utKr += 60;
+            utText += 30;
+            text.textContent = utText + " minuter = " + utKr + " kr ";
+
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
