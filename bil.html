@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,6 +15,7 @@
     <button id="Hyra"> <img src="" alt="">Hyra bil</button>
     <button id="Hyr5minuter" style="display: none;">Hyr5minuter</button>
     <button id="Hyr30minuter" style="display: none;"> Hyr30minuter</button>
+    <button id="Avsluta" style="display: none;"> Avsluta</button>
     <p id="output"></p>
     <script>
         let utText = 0;
@@ -41,6 +43,7 @@
                 Hyra.style.display = 'none';
                 Hyr5minuter.style.display = 'block';
                 Hyr30minuter.style.display = 'block';
+                Avsluta.style.display = 'block';
 
             });
 
@@ -50,12 +53,53 @@
             utKr += 10;
             utText += 5;
             text.textContent = utText + " minuter = " + utKr + " kr ";
+                if(utText >=300){
+                alert("Du har hyrt bilen i 5 timmar");
+                Hyr30minuter.disabled = true;
+                Hyr5minuter.disabled = true;
+                Hyr30minuter.style.display = 'none';
+                Hyr5minuter.style.display = 'none';
+
+            }
+               else {
+                Hyr30minuter.disabled = false;
+                Hyr5minuter.disabled = false;
+            }
         });
 
         document.getElementById('Hyr30minuter').addEventListener('click', function () {
             utKr += 60;
             utText += 30;
             text.textContent = utText + " minuter = " + utKr + " kr ";
+            if(utText >=300){
+                alert("Du har hyrt bilen i 5 timmar");
+                Hyr30minuter.disabled = true;
+                Hyr5minuter.disabled = true;
+                Hyr30minuter.style.display = 'none';
+                Hyr5minuter.style.display = 'none';
+               
+                
+            }
+            else {
+                Hyr30minuter.disabled = false;
+                Hyr5minuter.disabled = false;
+            }
+            
+
+
+        });
+
+         document.getElementById('Avsluta').addEventListener('click', function () {
+            if(utText > 0){
+                alert("vill du avsluta hyrningen?");
+                Hyr30minuter.disabled = true;
+                Hyr5minuter.disabled = true;
+                Hyr30minuter.style.display = 'none';
+                Hyr5minuter.style.display = 'none';
+                Avsluta.disabled = true;
+                Avsluta.style.display = 'none';
+            }
+
 
         });
 
